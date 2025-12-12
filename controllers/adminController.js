@@ -65,7 +65,6 @@ const loginAdmin = async (req, res) => {
       });
     }
 
-    // Generate Token
     const token = jwt.sign(
       { id: admin._id, email: admin.email },
       process.env.JWT_SECRET,

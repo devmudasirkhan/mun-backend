@@ -1,9 +1,12 @@
 import express from "express";
 import upload from "../middleware/upload.js";
 import {
+  acceptRegistration,
   createRegistration,
   getAllRegistrations,
+  rejectRegistration,
 } from "../controllers/registrationController.js";
+import requireAdmin from "../middleware/requireAdmin.js";
 
 const router = express.Router();
 
@@ -18,6 +21,8 @@ router.post(
   createRegistration
 );
 
-router.get("/", getAllRegistrations);
+router.put('/accept/:id', requireAdmin, acceptRegistration);
+router.put('/reject/:id', requireAdmin, rejectRegistration);
+router.get("/", requireAdmin, getAllRegistrations);
 
 export default router;

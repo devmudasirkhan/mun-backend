@@ -8,6 +8,8 @@ import registrationDataRoutes from "./routes/registrationDataRoutes.js";
 import registrationRoutes from "./routes/registrationRoutes.js";
 import seasonRoutes from "./routes/seasonRoutes.js";
 import adminRoutes from "./routes/adminRoutes.js";
+import delegateRoutes from "./routes/delegateRoutes.js";
+
 
 dotenv.config();
 const app = express();
@@ -33,6 +35,7 @@ app.use("/uploads", express.static("uploads"));
 
 // Routes
 app.use("/api/", registrationDataRoutes);
+app.use("/api/delegates", delegateRoutes);
 app.use("/api/registrations", registrationRoutes);
 app.use("/api/admin", adminRoutes);
 app.use("/api/seasons", seasonRoutes);
