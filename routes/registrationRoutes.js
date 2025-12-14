@@ -23,6 +23,9 @@ router.post(
 
 router.put('/accept/:id', requireAdmin, acceptRegistration);
 router.put('/reject/:id', requireAdmin, rejectRegistration);
+
+
+
 router.get("/", requireAdmin, getAllRegistrations);
 
 export default router;
